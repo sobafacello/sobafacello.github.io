@@ -18,7 +18,6 @@ function showCategoriesList(array){
                 <div class="col">
                     <div class="d-flex w-100 justify-content-between">
                         <div class="mb-1">
-                        `/* Cambios: se le agrego moneda, precio y vendidos a productos Autos*/`
                         <h4>`+ category.name + ` - `  + category.currency + ` ` + category.cost + `</h4> 
                         <p> `+ category.description +`</p> 
                         </div>
