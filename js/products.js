@@ -5,8 +5,8 @@ const ORDER_DESC_BY_PRICE = "$$->$";
 const ORDER_BY_PROD_COUNT = "Precio";
 const ORDER_BY_MAX_PRICE = "Cant.Max";
 const ORDER_BY_MIN_PRICE = "Cant.Min";
-let minCount=0;
-let maxCount=0;
+let minCount = 0;
+let maxCount = 0;
 
 
 let arrayFiltro = [];
@@ -70,10 +70,17 @@ document.getElementById('sortByCount').addEventListener("click", function(){
     mostrarOrdenado(ORDER_BY_PROD_COUNT, arrayFiltro);
 });
 
-document.getElementById('clearRangeFilter').addEventListener("click",function(){
-    document.getElementById("rangeFilterCountMin").value = "";
-    document.getElementById("rangeFilterCountMax").value = "";
+document.getElementById("rangeFilterCount").addEventListener("click",function(){
+    minCount = document.getElementById("rangeFilterCountMin").value;
+    maxCount = document.getElementById("rangeFilterCountMax").value;
+    document.getElementById('cat-list-container').innerHTML = ""
+    showCategoriesList(arrayFiltro)
 })
+
+document.getElementById("clearRangeFilter").addEventListener("click", function(){
+    document.getElementById("rangeFilterCountMin").value = "";
+    document.getElementById("rangeFilterCountMax").value = ""
+});
 
 
 
@@ -88,7 +95,7 @@ function showCategoriesList(array){
     for(let i = 0; i < array.length; i++){ 
         let category = array[i];
         if (((minCount == 0) || (parseInt(category.cost) >=minCount) ) && 
-        ((maxCount == 0) || (parseInt(category.cost) <= max))){
+        ((maxCount == 0) || (parseInt(category.cost) <= maxCount))){
         htmlContentToAppend += `
         <div class= "list-group-item list-group-item-action">
             <div class="row">
