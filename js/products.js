@@ -30,7 +30,7 @@ function mostrarOrdenado(criterio, array){
         arrayFiltro = array.reverse((a,b) => {return a.cost - b.cost} )
     }
     if (criterio === ORDER_BY_PROD_COUNT){
-        arrayFiltro = array.sort((a,b) => {return a.soldCount - b.soldCount} )
+        arrayFiltro = array.sort((b,a) => {return a.soldCount - b.soldCount} )
     }
 
     document.getElementById("cat-list-container").innerHTML= ""
